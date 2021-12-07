@@ -1,26 +1,29 @@
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
 
-export const SearchResults = (props) => {
+export const SearchResults = () => {
+    let {search} = useLocation();
+    console.log('SearchResults, search:', search);
+    if(search) search = `/search/${search}`;
+    console.log('SearchResults, search:', search);
 
-    // search for urlSearchParams in https://reactrouter.com/docs/en/v6/getting-started/concepts
-
-    const [instruments, setInstruments] = useState([]);
     let navigate = useNavigate();
+
+    const [results, setResults] = useState([]);
 
     useEffect(() => (async () => {
         try {
-            const { data } = await axios.get(`/instrument`);
-            setInstruments(data);
+            const { data } = await axios.get(`/instrument${search}`);
+            setResults(data);
         }
         catch (err) {
             console.log(err);
             alert(err);
         }
-    })(), []);
+    })(), [search]);
 
-    return !instruments.length ? <h1>Loading...</h1> : <>
+    return !results.length ? <h1>Loading...</h1> : <>
         <h1>Search Results Stub</h1>
         <button onClick={() => navigate(`/search-inst`)}>Back to Search Instruments</button>&nbsp;&nbsp;&nbsp;
         <button onClick={() => navigate(`/`)}>Back Main Menu</button><br /><br />
@@ -39,7 +42,7 @@ export const SearchResults = (props) => {
             </thead>
 
             <tbody>
-                {instruments.map(obj => <tr key={obj._id} >
+                {results.map(obj => <tr key={obj._id} >
                     <td>{obj.Volume}</td>
                     <td>{obj.Book}</td>
                     <td>{obj.Page}</td>
