@@ -8,12 +8,10 @@ module.exports = (DEBUG = true);
 // sudo mongod --dbpath .
 const mongoose = require("mongoose");
 mongoose.connect(
-  "mongodb://localhost:27017/bounty-hunter",
+  "mongodb://localhost:27017/county-clerk",
   () => { if (DEBUG) console.log("\n********** Connected to MongoDB **********") }
 );
 
-// TODO delete this
-const Bounty = require("./models/bounty");
 
 // Express Setup  
 const express = require("express");
@@ -30,7 +28,7 @@ app.use(express.json());
 
 
 // Route Handler(s)
-app.use("/bounties", require("./routes/bounty"));
+app.use("/instrument", require("./routes/instrument"));
 
 // Error Handler(s)
 app.use((err, req, res, next) => {
