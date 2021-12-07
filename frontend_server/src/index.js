@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
-import '../css/style.css';
+import './index.css';
 import axios from 'axios';
 import { Form } from './InputForm';
 
@@ -24,4 +24,4 @@ const App = () => {
 
 }
 
-ReactDOM.render(<App />, document.getElementById('root-div'));
+ReactDOM.render(<App />, document.getElementById('root'));
