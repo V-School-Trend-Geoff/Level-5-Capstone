@@ -4,13 +4,21 @@ export const AddViewEditInst = (props) => {
     const params = useParams();
     let navigate = useNavigate();
 
+    const handleSubmitClick = () => {
+        // asdfasd
+    }
+
     console.log(params);
 
     return <>
-        <h1>Add / View / Edit / Instrument Stub</h1>
+        <nav>
+            <h1>Add / View / Edit / Instrument</h1>
+        </nav>
         <label>Volume</label> <input /><br /><br />
-        <button>Submit</button><br /><br />
-        <button onClick={() => navigate(-1)}>Back</button>
+        <div className="buttons">
+            <button >Submit</button><br /><br />
+            <button onClick={() => navigate(-1)}>Back</button>
+        </div>
     </>
 
 };

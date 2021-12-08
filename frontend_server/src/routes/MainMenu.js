@@ -4,9 +4,13 @@ export const MainMenu = () => {
     let navigate = useNavigate();
 
     return <>
-        <h1>Main Menu Stub</h1>
-        <button onClick={() => navigate(`/add-new-inst`)}>Add New Instrument</button><br /><br />
-        <button onClick={() => navigate(`/search-inst`)}>Search Instruments</button>
+        <nav>
+            <h1>Main Menu</h1>
+        </nav>
+        <div className="buttons">
+            <button onClick={() => navigate(`/add-new-inst`)}>Add New Instrument</button><br /><br />
+            <button onClick={() => navigate(`/search-inst`)}>Search Instruments</button>
+        </div>
     </>
 
 };

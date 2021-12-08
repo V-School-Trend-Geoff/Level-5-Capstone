@@ -1,5 +1,27 @@
-* {
-    background-color:goldenrod;
+body {
+    background-color: lightseagreen;
+}
+
+nav {
+    font-size: 2em;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: darkblue;
+    color: lightgrey;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 25px;
+}
+
+.buttons button {
+    font-size: 1.5em;
+    width: 45vw;
+    background-color: lightgrey;
+    padding: 5px;
 }
 
 form {
@@ -20,7 +42,42 @@ form {
 
 .table {
     border-collapse: collapse;
-    margin: 25px 0;
     font-size: 1.5em;
-    width: 100vw;
+    width: calc(100vw - 15px);
+    border: 3px solid darkblue;
+}
+
+.table thead tr {
+    background-color: darkgray;
+    text-align: center;
+    color: darkblue;
+}
+
+.table th,
+.table td {
+    text-align: center;
+    padding: 5px;
+    border-right: 3px solid darkblue;
+}
+
+.table tbody tr:nth-of-type(even) {
+    background-color: lightgrey;
+}
+
+.table tbody tr:nth-of-type(odd) {
+    background-color: white;
+}
+
+.delete-btn {
+    color: red;
+    background-color: transparent;
+    padding: 10px;
+    border: none;
+}
+
+.edit-view-btn {
+    padding: 5px;
+    color: white;
+    font-size: .75em;
+    background-color: slategrey;
 }

@@ -3,12 +3,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
 
 export const SearchResults = () => {
-    let {search} = useLocation();
-    let x = useLocation();
-    console.log(x);
-    // console.log('SearchResults, search:', search);
-    if(search) search = `/search/${search}`;
-    // console.log('SearchResults, search:', search);
+    let { search } = useLocation();
+    if (search) search = `/search/${search}`;
 
     let navigate = useNavigate();
 
@@ -26,10 +22,15 @@ export const SearchResults = () => {
     })(), [search]);
 
     return !results.length ? <h1>Loading...</h1> : <>
-        <h1>Search Results Stub</h1>
-        <button onClick={() => navigate(`/search-inst`)}>Back to Search Instruments</button>&nbsp;&nbsp;&nbsp;
-        <button onClick={() => navigate(`/`)}>Back Main Menu</button><br /><br />
-        
+        <nav>
+            <h1>Search Results</h1>
+        </nav>
+        <div className="buttons"> 
+            <button onClick={() => navigate(`/search-inst`)}>Back to Search Instruments</button>
+            <button onClick={() => navigate(`/`)}>Back Main Menu</button>
+        </div>
+
+
         <table className='table'>
 
             <thead>
@@ -39,8 +40,8 @@ export const SearchResults = () => {
                     <th>Pg</th>
                     <th>Rcrd Dt</th>
                     <th>Type</th>
-                    <th>Edit Btn</th>
-                    <th>Del Btn</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
 
@@ -51,8 +52,8 @@ export const SearchResults = () => {
                     <td>{obj.Page}</td>
                     <td>{obj.RecDt}</td>
                     <td>{obj.InstType}</td>
-                    <td><button onClick={() => navigate(`/edit-view-inst/${obj._id}`)}>View / Edit</button></td>
-                    <td><button>Delete</button></td>
+                    <td><button onClick={() => navigate(`/edit-view-inst/${obj._id}`)} className="edit-view-btn">View / Edit</button></td>
+                    <td><button className="delete-btn">X</button></td>
                 </tr>)}
             </tbody>
 
