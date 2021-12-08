@@ -8,7 +8,8 @@ module.exports = (DEBUG = true);
 // sudo mongod --dbpath .
 const mongoose = require("mongoose");
 mongoose.connect(
-  "mongodb://localhost:27017/county-clerk",
+  // "mongodb://localhost:27017/county-clerk",
+  "mongodb+srv://trend_geoff_lev5_capstone:7654@cluster0.7hfsb.mongodb.net/county-clerk",
   () => { if (DEBUG) console.log("\n********** Connected to MongoDB **********") }
 );
 

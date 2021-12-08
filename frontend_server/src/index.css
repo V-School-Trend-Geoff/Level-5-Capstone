@@ -1,5 +1,5 @@
 * {
-    background-color: aqua;
+    background-color:goldenrod;
 }
 
 form {
@@ -16,4 +16,11 @@ form {
     padding: 5px;
     height: 25px;
     margin: 5px;
+}
+
+.table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1.5em;
+    width: 100vw;
 }

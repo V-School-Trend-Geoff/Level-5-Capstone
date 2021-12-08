@@ -4,9 +4,11 @@ import axios from 'axios';
 
 export const SearchResults = () => {
     let {search} = useLocation();
-    console.log('SearchResults, search:', search);
+    let x = useLocation();
+    console.log(x);
+    // console.log('SearchResults, search:', search);
     if(search) search = `/search/${search}`;
-    console.log('SearchResults, search:', search);
+    // console.log('SearchResults, search:', search);
 
     let navigate = useNavigate();
 
@@ -27,6 +29,7 @@ export const SearchResults = () => {
         <h1>Search Results Stub</h1>
         <button onClick={() => navigate(`/search-inst`)}>Back to Search Instruments</button>&nbsp;&nbsp;&nbsp;
         <button onClick={() => navigate(`/`)}>Back Main Menu</button><br /><br />
+        
         <table className='table'>
 
             <thead>
