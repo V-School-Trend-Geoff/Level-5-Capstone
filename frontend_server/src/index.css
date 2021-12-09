@@ -34,7 +34,7 @@ form {
     display: flex;
     align-items: center;
     border: 1px solid black;
-    width: 100px;
+    width: 200px;
     padding: 5px;
     height: 25px;
     margin: 5px;
@@ -82,3 +82,35 @@ form {
     font-size: .75em;
     background-color: slategrey;
 }
+
+.edit-view-form {
+    display: flex;
+    flex-direction: column;
+    font-size: 2em;
+}
+
+.edit-field {
+    display: flex;
+    align-items: center;
+}
+
+.edit-view-form input {
+    font-size: .75em;
+}
+
+.search-criteria-form {
+    display: flex;
+    justify-content: center;
+}
+
+.search-criteria-form input {
+    font-size: 1em;
+}
+
+.search-criteria-form select,
+.search-criteria-form label {
+    font-size: 1.5em;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
