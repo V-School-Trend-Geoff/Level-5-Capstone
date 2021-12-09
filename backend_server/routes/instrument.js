@@ -13,7 +13,7 @@ instrumentRouter.route("/")
             }
             if (DEBUG) console.log('---------------------- Returning data\n', data);
             return res.status(200).json(data);
-        }).sort({ RecDt: 1 });
+        }).sort({ Volume: 1, Book: 1, Page: 1 });
     })
 
     .post(async (req, res, next) => {
@@ -77,20 +77,12 @@ instrumentRouter.route("/id/:id")
             for (const prop in req) if (["params", "query", "body"].includes(prop))
                 console.log(`---------------------- ${prop}\n`, req[prop]);
         };
-        Instrument.findOneAndDelete({ _id: req.params.id }, (err) => {
+        Instrument.findOneAndDelete({ _id: req.params.id }, (err, data) => {
             if (err) {
                 res.status(500);
                 return next(err);
-            };
-        });
-        Instrument.find((err, data) => {
-            if (err) {
-                res.status(500);
-                return next(err);
-            };
-            if (DEBUG) console.log('---------------------- Returning data\n', data);
-            return res.status(200).json(data);
-        }).sort({ RecDt: 1 });
+            }
+        })
     });
 
 instrumentRouter.route("/search").get(async (req, res, next) => {
@@ -106,7 +98,7 @@ instrumentRouter.route("/search").get(async (req, res, next) => {
         };
         if (DEBUG) console.log('---------------------- Returning data\n', data);
         return res.status(200).json(data);
-    }).sort({ RecDt: 1 });
+    }).sort({ Volume: 1, Book: 1, Page: 1 })
 });
 
 module.exports = instrumentRouter;

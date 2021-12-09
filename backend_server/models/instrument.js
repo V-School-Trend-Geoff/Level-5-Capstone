@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const InstrumentSchema = new mongoose.Schema({
     Volume: {
         type: String,
+        enum: ['DEED', 'LIEN', 'PLAT'],
         required: true
     },
     Book: {
