@@ -17,9 +17,9 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<MainMenu/>} />
-        <Route path="/add-new-inst" element={<AddViewEditInst mode={'add'}/>} />
+        <Route path="/add-new-inst" element={<AddViewEditInst/>} />
         <Route path="/search-instruments" element={<SearchInst/>} />
-        <Route path="/edit-view-inst/:instId" element={<AddViewEditInst mode={'edit'}/>} />
+        <Route path="/edit-view-inst/:instId" element={<AddViewEditInst/>} />
       </Routes>
     </Router>);
 }
